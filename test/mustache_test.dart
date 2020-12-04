@@ -36,6 +36,10 @@ class ClassWithOptionalParamMethod {
 
 void main() {
   group('Basic', () {
+    test('Unicode', () {
+      var output = parse('\u{1F634}\n').renderString({});
+      expect(output, equals('\u{1F634}\n'));
+    });
     test('Variable', () {
       var output = parse('_{{var}}_').renderString({'var': 'bob'});
       expect(output, equals('_bob_'));
